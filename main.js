@@ -8,11 +8,11 @@ async function postData(url = '', data = {}) {
             body: JSON.stringify(data)
         });
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('ERROR in network response');
         }
         return response.json();
     } catch (error) {
-        console.error('There was a problem with the POST request:', error);
+        console.error('ERROR with the POST request:', error);
         throw error;
     }
 }
@@ -21,12 +21,12 @@ async function fetchAndDisplayUserInfo() {
     try {
         const response = await fetch('https://reqres.in/api/users/4');
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('ERROR in network response');
         }
         const data = await response.json();
         await displayUserInfo(data);
     } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('ERROR with the fetch operation:', error);
     }
 }
 
